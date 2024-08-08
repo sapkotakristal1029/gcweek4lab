@@ -1,0 +1,7 @@
+.nav-link.active {
+  background-color: blue;
+  color: white !important;
+}
+#navbarNav {
+  margin-left: 0900px;
+}
