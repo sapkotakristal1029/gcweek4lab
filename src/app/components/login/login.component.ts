@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -16,7 +16,7 @@ export class LoginComponent {
   errorMessage: string = '';
 
   users = [
-    { email: 'user1@example.com', password: 'password1' },
+    { email: '123@123.com', password: '123' },
     { email: 'user2@example.com', password: 'password2' },
     { email: 'user3@example.com', password: 'password3' },
   ];

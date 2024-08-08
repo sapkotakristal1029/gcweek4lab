@@ -1,19 +1,40 @@
-# gcweek4lab
+# Install Angular CLI
 
-# Git Task Guide
+npm install -g @angular/cli
 
-## Cloning a Repository
+# Create a new Angular project
 
-To clone a repository, use the `git clone` command followed by the repository URL:
+ng new my-angular-project
 
-# Add a specific file
+# Navigate into project directory
 
-git add gcweek4lab
+cd my-angular-project
 
-# Add all changes
+# Install project dependencies
+
+npm install
+
+# Working with Angular Components
+
+## 1. Generate a New Component
+
+To generate a new component, use the Angular CLI command:
+
+ng generate component component-name
+
+# Initialize a Git repository
+
+git init
+
+# Add and commit initial files
 
 git add .
+git commit -m "Initial commit"
 
-git commit -m "Your commit message"
+# Start the Angular development server
 
-git push origin your-branch-name
+ng serve
+
+```
+
+```
