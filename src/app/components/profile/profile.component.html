@@ -1,0 +1,67 @@
+<!-- profile.component.html -->
+
+<div *ngIf="currentUser">
+  <h2>User Profile</h2>
+  <div class="container mt-4">
+    <form (ngSubmit)="saveProfile()">
+      <!-- Username Field -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input
+          type="text"
+          id="username"
+          class="form-control"
+          [(ngModel)]="currentUser.username"
+          name="username"
+          placeholder="{{ currentUser?.username }}"
+        />
+      </div>
+
+      <!-- Email Field -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [(ngModel)]="currentUser.email"
+          name="email"
+          placeholder="{{ currentUser?.email }}"
+        />
+      </div>
+
+      <!-- Birthdate Field -->
+      <div class="mb-3">
+        <label for="birthdate" class="form-label">Birthdate:</label>
+        <input
+          type="date"
+          id="birthdate"
+          class="form-control"
+          [(ngModel)]="currentUser.birthdate"
+          name="birthdate"
+          placeholder="{{ currentUser?.birthdate }}"
+        />
+      </div>
+
+      <!-- Age Field -->
+      <div class="mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input
+          type="number"
+          id="age"
+          class="form-control"
+          [(ngModel)]="currentUser.age"
+          name="age"
+          placeholder="{{ currentUser?.age }}"
+        />
+      </div>
+
+      <!-- Save Button -->
+      <button type="submit" class="btn btn-primary">Save Profile</button>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="!currentUser">
+  <p>No user data available. Please log in.</p>
+</div>

@@ -1,5 +1,7 @@
+// login.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -15,22 +17,24 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  users = [
-    { email: '123@123.com', password: '123' },
-    { email: 'user2@example.com', password: 'password2' },
-    { email: 'user3@example.com', password: 'password3' },
-  ];
-
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   login() {
-    const user = this.users.find(
-      (u) => u.email === this.email && u.password === this.password
-    );
-    if (user) {
-      this.router.navigate(['/account']);
-    } else {
-      this.errorMessage = 'Invalid email or password';
-    }
+    // POST request to authenticate
+    this.http
+      .post<any>('http://localhost:3000/api/auth', {
+        username: this.email,
+        password: this.password,
+      })
+      .subscribe(
+        (response) => {
+          // Store user data in session storage (without password)
+          sessionStorage.setItem('currentUser', JSON.stringify(response));
+          this.router.navigate(['/account']); // Navigate to account page
+        },
+        (error) => {
+          this.errorMessage = 'Invalid email or password';
+        }
+      );
   }
 }
